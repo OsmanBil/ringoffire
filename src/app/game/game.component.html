@@ -3,16 +3,18 @@
 
 
     <div class="player-mobile" >
-        <app-player  *ngFor="let player of game.players; let i = index;"  [ngStyle]="{'left.px': 20 + (i * 60)}" 
+        <app-player (click)="editPlayer(i)"  *ngFor="let player of game.players; let i = index;"  [ngStyle]="{'left.px': 20 + (i * 60)}" 
         [playerActive]="i == game.currentPlayer"
         [name]="player"
+        [profilePic]="game.profilePics[i]"
         class="player-position-mobile"></app-player>
     </div>
 
     <div class="player-wide" >
-        <app-player  *ngFor="let player of game.players; let i = index;"  [ngStyle]="{'top.px': 100 + (i * 120)}" 
+        <app-player (click)="editPlayer(i)" *ngFor="let player of game.players; let i = index;"  [ngStyle]="{'top.px': 100 + (i * 120)}" 
         [playerActive]="i == game.currentPlayer"
         [name]="player"
+        [profilePic]="game.profilePics[i]"
         class="player-position"></app-player>
     </div>
 

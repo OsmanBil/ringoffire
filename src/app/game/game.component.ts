@@ -4,6 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
 import { DialogsComponent } from '../dialogs/dialogs.component';
+import { DialogEditPlayerComponent } from '../dialog-edit-player/dialog-edit-player.component';
 
 @Component({
   selector: 'app-game',
@@ -47,29 +48,36 @@ export class GameComponent implements OnInit {
 
 
 
+  editPlayer(playerId: number): void {
+    const dialogRef = this.dialog.open(DialogEditPlayerComponent);
+    dialogRef.afterClosed().subscribe(profilePic1 => {
+
+      /*let picNumber :string = profilePic1;
+      let id = playerId.toString();
+     
+*/
+
+      console.log(profilePic1);
+      this.game.profilePics[playerId] = profilePic1;
 
 
+
+    });
+
+  }
 
 
 
 
 
   openDialog(): void {
-
-
     if (this.game.players.length >= 5) {
-      console.log("maximale spieleranzahl erreicht");
       this.openDialog1();
     } else {
-
       const dialogRef = this.dialog.open(DialogAddPlayerComponent);
       dialogRef.afterClosed().subscribe(({ name, profilePic }) => {
-
-
         this.game.players.push(name);
         this.game.profilePics.push(profilePic);
-
-
       });
     }
   }

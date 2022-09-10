@@ -1,4 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
+import { DialogEditPlayerComponent } from '../dialog-edit-player/dialog-edit-player.component';
+import { DialogsComponent } from '../dialogs/dialogs.component';
 
 @Component({
   selector: 'app-player',
@@ -12,9 +16,21 @@ export class PlayerComponent implements OnInit {
   @Input() playerActive: boolean = false;
   
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
+
+  openDialogEditPlayer(): void {
+    
+      
+    
+    //  const dialogRef = this.dialog.open(DialogEditPlayerComponent);
+    //  dialogRef.afterClosed().subscribe(({ name, profilePic }) => {
+    //    game.players.push(name);
+    //    game.profilePics.push(profilePic);
+    //  });
+    }
+  
 
 }
