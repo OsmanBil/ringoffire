@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
+
+
 @Component({
   selector: 'app-dialog-add-player',
   templateUrl: './dialog-add-player.component.html',
@@ -8,6 +10,9 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 })
 export class DialogAddPlayerComponent implements OnInit {
   name: string = '';
+  profilePic: string = '';
+
+
 
   constructor(public dialogRef: MatDialogRef<DialogAddPlayerComponent>) { }
 

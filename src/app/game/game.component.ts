@@ -3,6 +3,7 @@ import { Game } from 'src/models/game';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
+import { DialogsComponent } from '../dialogs/dialogs.component';
 
 @Component({
   selector: 'app-game',
@@ -14,10 +15,12 @@ export class GameComponent implements OnInit {
   currentCard: string = '';
   game: Game;
 
+
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.newGame();
+
 
   }
 
@@ -26,7 +29,7 @@ export class GameComponent implements OnInit {
   }
 
   takeCard() {
-    if (!this.pickCardAnimation) {
+    if (!this.pickCardAnimation && this.game.players.length > 1) {
       this.currentCard = this.game.stack.pop();
       this.pickCardAnimation = true;
       console.log(this.currentCard);
@@ -37,6 +40,8 @@ export class GameComponent implements OnInit {
         this.game.playedCards.push(this.currentCard);
         this.pickCardAnimation = false;
       }, 1000);
+    } else {
+      this.openDialog();
     }
   }
 
@@ -50,14 +55,47 @@ export class GameComponent implements OnInit {
 
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
-    dialogRef.afterClosed().subscribe((name: string) => {
-      if (name && name.length > 0) {
+
+    if (this.game.players.length >= 5) {
+      console.log("maximale spieleranzahl erreicht");
+      this.openDialog1();
+    } else {
+
+      const dialogRef = this.dialog.open(DialogAddPlayerComponent);
+      dialogRef.afterClosed().subscribe(({ name, profilePic }) => {
 
 
         this.game.players.push(name);
+        this.game.profilePics.push(profilePic);
+
+
+      });
+    }
+  }
+
+
+
+
+
+  openDialog1() {
+
+
+    const dialogRef = this.dialog.open(DialogsComponent);
+
+    dialogRef.afterClosed().subscribe(({ name, profilePic }) => {
+
+      if (this.game.players.length >= 2) {
+        console.log("maximale spieleranzahl erreicht");
+
+      } else if (name && name.length > 0) {
+
+
+        this.game.players.push(name);
+        this.game.profilePics.push(profilePic);
       }
+
+
     });
   }
 
