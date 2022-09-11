@@ -25,11 +25,6 @@ export class PlayerComponent implements OnInit {
     
       
     
-    //  const dialogRef = this.dialog.open(DialogEditPlayerComponent);
-    //  dialogRef.afterClosed().subscribe(({ name, profilePic }) => {
-    //    game.players.push(name);
-    //    game.profilePics.push(profilePic);
-    //  });
     }
   
 

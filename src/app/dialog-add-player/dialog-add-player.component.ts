@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 
 
+
 @Component({
   selector: 'app-dialog-add-player',
   templateUrl: './dialog-add-player.component.html',
@@ -20,7 +21,7 @@ export class DialogAddPlayerComponent implements OnInit {
   }
 
   onNoClick(){
-    this.dialogRef.close();
+      this.dialogRef.close();   
   }
   
 }

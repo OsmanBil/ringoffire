@@ -5,7 +5,7 @@
   <p>Please enter the name of a player</p>
   <mat-form-field >
     <mat-label>Name</mat-label>
-    <input matInput [(ngModel)]="name">
+    <input matInput [(ngModel)]="name" ngModel maxlength="6">
   </mat-form-field>
 
 </div>
@@ -22,6 +22,6 @@
 
 
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [disabled]="name.length==0" [mat-dialog-close]="{name, profilePic}" cdkFocusInitial>Ok</button>
+  <button mat-button (click)="onNoClick()">Close</button>
+  <button mat-button [disabled]="name.length == 0" [mat-dialog-close]="{name, profilePic}" cdkFocusInitial>Add</button>
 </div>

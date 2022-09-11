@@ -9,14 +9,14 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 export class DialogEditPlayerComponent implements OnInit {
   name: string = '';
   profilePic: string = '';
-  
+delete = true;
 
   constructor(public dialogRef: MatDialogRef<DialogEditPlayerComponent>) { }
 
   ngOnInit(): void {
   }
 
-  onNoClick(){
+  onNoClick() {
     this.dialogRef.close();
   }
 

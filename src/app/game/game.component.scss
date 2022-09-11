@@ -66,6 +66,9 @@
 .player-position-mobile {
     position: absolute;
     top: 0px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
 .player-mobile{
@@ -93,6 +96,8 @@
 @media(max-width: 800px) {
     .player-mobile{
         display: flex;
+        justify-content: center;
+        align-items: center;
      }
 
      .player-wide{

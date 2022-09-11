@@ -50,24 +50,24 @@ export class GameComponent implements OnInit {
 
   editPlayer(playerId: number): void {
     const dialogRef = this.dialog.open(DialogEditPlayerComponent);
-    dialogRef.afterClosed().subscribe(profilePic1 => {
+    dialogRef.afterClosed().subscribe(vari => {
 
-      /*let picNumber :string = profilePic1;
-      let id = playerId.toString();
-     
-*/
+      if (vari == "delete") {
+        this.game.profilePics.splice(playerId, 1)
+        this.game.players.splice(playerId, 1)
+      }else{
+        const profilePic1 = vari;
+        this.game.profilePics[playerId] = profilePic1;
+      }
 
-      console.log(profilePic1);
-      this.game.profilePics[playerId] = profilePic1;
+  
+    
 
 
 
     });
 
   }
-
-
-
 
 
   openDialog(): void {
@@ -86,24 +86,10 @@ export class GameComponent implements OnInit {
 
 
 
+
   openDialog1() {
-
-
     const dialogRef = this.dialog.open(DialogsComponent);
-
-    dialogRef.afterClosed().subscribe(({ name, profilePic }) => {
-
-      if (this.game.players.length >= 2) {
-        console.log("maximale spieleranzahl erreicht");
-
-      } else if (name && name.length > 0) {
-
-
-        this.game.players.push(name);
-        this.game.profilePics.push(profilePic);
-      }
-
-
+    dialogRef.afterClosed().subscribe(profilePic => {
     });
   }
 
