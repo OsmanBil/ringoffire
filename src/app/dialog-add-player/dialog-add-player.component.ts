@@ -11,6 +11,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 })
 export class DialogAddPlayerComponent implements OnInit {
   name: string = '';
+  role: string = '';
   profilePic: string = '';
 
 

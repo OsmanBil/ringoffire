@@ -15,6 +15,9 @@ export class GameComponent implements OnInit {
   pickCardAnimation = false;
   currentCard: string = '';
   game: Game;
+  name: any;
+  role: any;
+  passedValues: any;
 
 
   constructor(public dialog: MatDialog) { }
@@ -55,13 +58,13 @@ export class GameComponent implements OnInit {
       if (vari == "delete") {
         this.game.profilePics.splice(playerId, 1)
         this.game.players.splice(playerId, 1)
-      }else{
+      } else {
         const profilePic1 = vari;
         this.game.profilePics[playerId] = profilePic1;
       }
 
-  
-    
+
+
 
 
 
@@ -75,12 +78,20 @@ export class GameComponent implements OnInit {
       this.openDialog1();
     } else {
       const dialogRef = this.dialog.open(DialogAddPlayerComponent);
+
+
       dialogRef.afterClosed().subscribe(({ name, profilePic }) => {
-        this.game.players.push(name);
-        this.game.profilePics.push(profilePic);
+        if (name && name.length > 0) {
+          this.game.players.push(name);
+          this.game.profilePics.push(profilePic);
+        }
+
+
       });
     }
   }
+
+
 
 
 
