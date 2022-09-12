@@ -1,7 +1,4 @@
 <h1 mat-dialog-title>Edit player </h1>
-
-
-
 <mat-form-field appearance="fill">
   <mat-label>Select profile foto</mat-label>
   <mat-select [(ngModel)]="profilePic">
@@ -11,9 +8,6 @@
     <mat-option class="picture" value="2"><img src="assets/img/profile_{{2}}.jpg">Man</mat-option>
   </mat-select>
 </mat-form-field>
-
-
-
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Close</button>
   <button mat-button [mat-dialog-close]="'delete'" cdkFocusInitial>DELETE</button>

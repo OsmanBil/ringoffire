@@ -1,13 +1,10 @@
 <h1 mat-dialog-title>Add a new player </h1>
-
-
 <div mat-dialog-content>
   <p>Please enter the name of a player</p>
   <mat-form-field >
     <mat-label>Name</mat-label>
-    <input matInput [(ngModel)]="name" ngModel maxlength="6">
+    <input matInput [(ngModel)]="name" ngModel maxlength="6" required>
   </mat-form-field>
-
 </div>
 <mat-form-field appearance="fill">
   <mat-label>Select profile foto</mat-label>
@@ -18,9 +15,6 @@
     <mat-option class="picture" value="2"><img src="assets/img/profile_{{2}}.jpg">Man</mat-option>
   </mat-select>
 </mat-form-field>
-
-
-
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Close</button>
   <button mat-button [disabled]="name.length == 0" [mat-dialog-close]="{name, profilePic}" cdkFocusInitial>Add</button>

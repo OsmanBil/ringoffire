@@ -37,7 +37,6 @@ export class GameComponent implements OnInit {
       this.currentCard = this.game.stack.pop();
       this.pickCardAnimation = true;
       console.log(this.currentCard);
-
       this.game.currentPlayer++;
       this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
       setTimeout(() => {
@@ -54,20 +53,15 @@ export class GameComponent implements OnInit {
   editPlayer(playerId: number): void {
     const dialogRef = this.dialog.open(DialogEditPlayerComponent);
     dialogRef.afterClosed().subscribe(vari => {
-
-      if (vari == "delete") {
-        this.game.profilePics.splice(playerId, 1)
-        this.game.players.splice(playerId, 1)
-      } else {
-        const profilePic1 = vari;
-        this.game.profilePics[playerId] = profilePic1;
+      if (vari && vari.length > 0) {
+        if (vari == "delete") {
+          this.game.profilePics.splice(playerId, 1)
+          this.game.players.splice(playerId, 1)
+        } else {
+          const profilePic1 = vari;
+          this.game.profilePics[playerId] = profilePic1;
+        }
       }
-
-
-
-
-
-
     });
 
   }
@@ -78,30 +72,18 @@ export class GameComponent implements OnInit {
       this.openDialog1();
     } else {
       const dialogRef = this.dialog.open(DialogAddPlayerComponent);
-
-
-      dialogRef.afterClosed().subscribe(({ name, profilePic }) => {
-        if (name && name.length > 0) {
-          this.game.players.push(name);
-          this.game.profilePics.push(profilePic);
+      dialogRef.afterClosed().subscribe((newPlayer) => {
+        if (newPlayer && newPlayer.name.length > 0) {
+          this.game.players.push(newPlayer.name);
+          this.game.profilePics.push(newPlayer.profilePic);
         }
-
-
       });
     }
   }
-
-
-
-
-
-
-
 
   openDialog1() {
     const dialogRef = this.dialog.open(DialogsComponent);
     dialogRef.afterClosed().subscribe(profilePic => {
     });
   }
-
 }

@@ -19,6 +19,4 @@ delete = true;
   onNoClick() {
     this.dialogRef.close();
   }
-
-
 }

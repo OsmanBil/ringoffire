@@ -1,5 +1,9 @@
 .picture{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     img{
+        margin-top: 18px;
         height: 35px;
         width: 35px;
     }

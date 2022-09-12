@@ -14,7 +14,7 @@ export class PlayerComponent implements OnInit {
   @Input() name;
   @Input() profilePic;
   @Input() playerActive: boolean = false;
-  
+
 
   constructor(public dialog: MatDialog) { }
 
@@ -22,10 +22,7 @@ export class PlayerComponent implements OnInit {
   }
 
   openDialogEditPlayer(): void {
-    
-      
-    
-    }
-  
+  }
+
 
 }

@@ -9,6 +9,9 @@
 
     img{
         height: 100vh;
+        width: 100vw;
+        max-width: 100%;
+        object-fit: contain;
     }
 }
 
@@ -17,11 +20,12 @@
     left: 0;
     right: 0;
     bottom: 50px;
+    top: 300px;
     display: flex;
     justify-content: center;
 
     img{
-        width: 30vw;
+        width: 50vw;
         height: auto;
 
         &:hover{
@@ -30,3 +34,10 @@
         }
     }
 }
+
+@media(max-width: 360px) {
+    .start-label-box{
+        top: 200px !important;
+    }
+}
+
