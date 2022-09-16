@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "osmringoffire": {
+      "hosting": {
+        "ringoffire": [
+          "osmringoffire"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "osmringoffire"
+  }
+}
